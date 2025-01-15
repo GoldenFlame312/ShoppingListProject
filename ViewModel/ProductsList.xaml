@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingListProject.Views.ProductsList">
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+            <!-- Tytuł -->
+            <Label Text="Produkty"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333"
+                   Margin="0,20,0,10"/>
+
+            <!-- Przycisk Powrót -->
+            <Button Text="Powrót"
+                    Clicked="OnGoToMenuClicked"
+                    Margin="0,0,0,20"
+                    BackgroundColor="#FF9800"
+                    TextColor="White"
+                    CornerRadius="10"
+                    WidthRequest="150"
+                    HorizontalOptions="Center"/>
+
+            <!-- Lista produktów -->
+            <CollectionView x:Name="productsList" ItemsSource="{Binding AllProducts}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White"
+                               BorderColor="#DDD"
+                               CornerRadius="12"
+                               Padding="15"
+                               Margin="0,5"
+                               HasShadow="True">
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="15"
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Center">
+
+                                <!-- Nazwa produktu -->
+                                <Label Text="{Binding Name}" 
+                                       FontSize="16"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="StartAndExpand"
+                                       TextColor="#333"/>
+
+                                <!-- Przycisk zmniejszania ilości -->
+                                <Button Text="-"
+                                        Clicked="OnDecreaseQuantityClicked"
+                                        BackgroundColor="#FF9800"
+                                        TextColor="White"
+                                        CornerRadius="5"
+                                        WidthRequest="40"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+
+                                <!-- Ilość produktu -->
+                                <Entry Text="{Binding Quantity, Mode=TwoWay}" 
+                                       Margin="10,0"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       WidthRequest="80"
+                                       BackgroundColor="White"
+                                       Keyboard="Numeric"
+                                       TextColor="#333"
+                                       FontSize="16"/>
+                                      
+
+                                <!-- Przycisk zwiększania ilości -->
+                                <Button Text="+"
+                                        Clicked="OnIncreaseQuantityClicked"
+                                        BackgroundColor="#FF9800"
+                                        TextColor="White"
+                                        CornerRadius="5"
+                                        WidthRequest="40"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+
+                                <!-- Jednostka miary -->
+                                <Label Text="{Binding Unit}" 
+                                       FontSize="16"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       TextColor="#333"/>
+
+                                <!-- Opcjonalność -->
+                                <CheckBox IsChecked="{Binding IsOptional, Mode=TwoWay}" 
+                                          HorizontalOptions="Center"
+                                          VerticalOptions="Center"/>
+
+                                <!-- Kupione -->
+                                <CheckBox IsChecked="{Binding IsBought, Mode=TwoWay}" 
+                                          HorizontalOptions="Center"
+                                          VerticalOptions="Center"/>
+
+                                <!-- Przycisk Usuń -->
+                                <Button Text="Usuń"
+                                        Clicked="OnProductDeleteClicked"
+                                        BackgroundColor="#FF5722"
+                                        TextColor="White"
+                                        CornerRadius="10"
+                                        WidthRequest="80"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingListProject.MainPage"
+             BackgroundColor="Transparent">
+
+    <!-- Gradient background -->
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#4CAF50" Offset="0" />
+            <GradientStop Color="#2196F3" Offset="1" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView Padding="20">
+        <!-- Główna zawartość w StackLayout -->
+        <VerticalStackLayout Spacing="30" HorizontalOptions="Center" VerticalOptions="CenterAndExpand">
+
+            <!-- Sekcja Wyświetl -->
+            <Frame BorderColor="#4CAF50" CornerRadius="15" Padding="20" BackgroundColor="White">
+                <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+                    <Label Text="Wyświetl"
+                           HorizontalTextAlignment="Center"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="#2d2d2d"/>
+                    <Button Text="Lista produktów"
+                            Clicked="onProductsListClicked"
+                            WidthRequest="250"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            CornerRadius="10"/>
+                    <Button Text="Lista kategorii"
+                            Clicked="OnCategoryListClicked"
+                            WidthRequest="250"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            CornerRadius="10"/>
+                    <Button Text="Lista zakupów"
+                            Clicked="OnShoppingListClicked"
+                            WidthRequest="250"
+                            BackgroundColor="#4CAF50"
+                            TextColor="White"
+                            CornerRadius="10"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Sekcja Dodaj -->
+            <Frame BorderColor="#2196F3" CornerRadius="15" Padding="20" BackgroundColor="White">
+                <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+                    <Label Text="Dodaj"
+                           HorizontalTextAlignment="Center"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="#2d2d2d"/>
+                    <Button Text="Produkt"
+                            Clicked="OnAddProductClicked"
+                            WidthRequest="250"
+                            BackgroundColor="#2196F3"
+                            TextColor="White"
+                            CornerRadius="10"/>
+                    <Button Text="Kategorię"
+                            Clicked="OnAddCategoryClicked"
+                            WidthRequest="250"
+                            BackgroundColor="#2196F3"
+                            TextColor="White"
+                            CornerRadius="10"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Sekcja Zapisz -->
+            <Frame BorderColor="#FF9800" CornerRadius="15" Padding="20" BackgroundColor="White">
+                <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+                    <Label Text="Zapisz"
+                           HorizontalTextAlignment="Center"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="#2d2d2d"/>
+                    <Button Text="Zapisz listę"
+                            Clicked="OnSaveListClicked"
+                            WidthRequest="250"
+                            BackgroundColor="#FF9800"
+                            TextColor="White"
+                            CornerRadius="10"/>
+                </VerticalStackLayout>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

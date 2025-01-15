@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingListProject.Views.AddProduct">
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+            <!-- Tytuł -->
+            <Label Text="Dodawanie produktu"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333"
+                   Margin="0,10,10,10"/>
+
+            <!-- Pole Nazwa produktu -->
+            <Frame BackgroundColor="White"
+                   BorderColor="#DDD"
+                   CornerRadius="10"
+                   Padding="10"
+                   HasShadow="True">
+                <Entry x:Name="productName"
+                       Placeholder="Nazwa produktu"
+                       BackgroundColor="White"
+                       FontSize="16"/>
+            </Frame>
+
+            <!-- Pole Ilość -->
+            <Frame BackgroundColor="White"
+                   BorderColor="#DDD"
+                   CornerRadius="10"
+                   Padding="10"
+                   HasShadow="True">
+                <Entry x:Name="productQuantity"
+                       Placeholder="Ilość"
+                       Keyboard="Numeric"
+                       BackgroundColor="White"
+                       FontSize="16"/>
+            </Frame>
+
+            <!-- Wybór jednostki -->
+            <Label Text="Wybierz jednostkę"
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   TextColor="#333"/>
+            <Frame BackgroundColor="White"
+                   BorderColor="#DDD"
+                   CornerRadius="10"
+                   Padding="10"
+                   HasShadow="True">
+                <Picker x:Name="productUnit" BackgroundColor="White">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>szt</x:String>
+                            <x:String>kg</x:String>
+                            <x:String>l</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Frame>
+
+            <!-- Wybór kategorii -->
+            <Label Text="Wybierz kategorię"
+                   FontSize="16"
+                   HorizontalOptions="Center"
+                   TextColor="#333"/>
+            <Frame BackgroundColor="White"
+                   BorderColor="#DDD"
+                   CornerRadius="10"
+                   Padding="10"
+                   HasShadow="True">
+                <Picker x:Name="productCategory" BackgroundColor="White">
+                    <Picker.ItemsSource/>
+                </Picker>
+            </Frame>
+
+            <!-- Produkt opcjonalny -->
+            <HorizontalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="10">
+                <Label Text="Produkt opcjonalny" FontSize="18" VerticalOptions="Center" TextColor="#333"/>
+                <CheckBox x:Name="productIsOptional" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- Przycisk Powrót i Dodaj -->
+            <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                <Button Text="Powrót"
+                        Clicked="OnGoToMenuClicked"
+                        Padding="15,10"
+                        BackgroundColor="#FF9800"
+                        TextColor="White"
+                        CornerRadius="10"
+                        WidthRequest="150"/>
+                <Button Text="Dodaj"
+                        Clicked="OnAddProductClicked"
+                        Padding="15,10"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="10"
+                        WidthRequest="150"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentView>
